@@ -13,10 +13,17 @@ body {
   color: white;
 }
 
+/* HERO */
+.hero {
+  background: #000;
+  display: flex;
+  justify-content: center;
+}
+
 .hero img {
   width: 100%;
   max-height: 520px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* CONTAINER */
@@ -30,12 +37,11 @@ body {
 .slider {
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
 }
 
 .slides {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease;
 }
 
 .slide {
@@ -43,13 +49,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: black;
+  background: #000;
 }
 
 .slide img,
 .slide video {
-  width: 100%;
-  max-height: 500px;
+  max-width: 100%;
+  max-height: 450px;
   object-fit: contain;
 }
 
@@ -58,19 +64,18 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 30px;
+  font-size: 28px;
   background: rgba(0,0,0,0.5);
   border: none;
   color: white;
   padding: 10px;
   cursor: pointer;
-  z-index: 2;
 }
 
 .left { left: 10px; }
 .right { right: 10px; }
 
-/* THUMBNAILS */
+/* THUMBS */
 .thumbs {
   display: flex;
   gap: 8px;
@@ -91,7 +96,7 @@ body {
   border: 2px solid white;
 }
 
-/* BOOK BOX */
+/* BOOK / CONTENT */
 .book {
   background: #1c1c1c;
   padding: 20px;
@@ -99,20 +104,27 @@ body {
   margin-top: 20px;
 }
 
+.book h2 { margin-top: 0; }
+.book h3 { margin-top: 20px; }
+
+.book ul {
+  padding-left: 20px;
+}
+
 .highlight {
-  color: #25D366;
+  margin-top: 15px;
   font-weight: bold;
-  margin-top: 10px;
+  color: #25D366;
 }
 
 .btn {
   display: block;
   margin-top: 10px;
-  padding: 10px;
+  padding: 12px;
   text-align: center;
   border-radius: 6px;
-  color: white;
   text-decoration: none;
+  color: white;
 }
 
 .whatsapp { background: #25D366; }
@@ -164,7 +176,7 @@ Quiet island escape just a 10-minute walk to the beach.<br>
 
 </div>
 
-<!-- THUMBNAILS -->
+<!-- THUMBS -->
 <div class="thumbs" id="thumbs">
 <img src="Hero.jpg">
 <img src="Image%201.JPG">
@@ -178,20 +190,64 @@ Quiet island escape just a 10-minute walk to the beach.<br>
 <img src="Image%2012.jpg">
 </div>
 
-<!-- BOOKING -->
+<!-- DESCRIPTION -->
 <div class="book">
-<h3>Accommodation Details</h3>
 
-<p><strong>House 1:</strong> 2 Queen-size beds & 2 extra foam</p>
-<p><strong>House 2:</strong> 1 Queen-size bed & 1 extra foam</p>
-<p>3 Bathrooms with Shower & Bidet</p>
+<h2>🌴 Katulganan — Your Private Island Retreat on Talikud 🌊</h2>
+
+<p><strong>Two-Building Villa | 3 Bedrooms | Relaxing Garden | Near the Beach</strong></p>
+
+<p>
+Welcome to Katulganan, your peaceful home away from home on beautiful Talikud Island — a quiet sanctuary surrounded by lush gardens, sea breezes, and island charm.
+</p>
+
+<h3>🏡 The Property</h3>
+<p>
+Two buildings set within a tranquil tropical garden, offering space, privacy, and a relaxing island lifestyle.
+</p>
+
+<h3>🛏 The Main House</h3>
+<p>
+<strong>Casa Bamboo:</strong> Queen bed, garden view<br>
+<strong>Casa Palmera:</strong> Queen bed, bright and inviting<br>
+<strong>Casa Coco:</strong> Queen beds, great for families or guests
+</p>
+
+<h3>🏠 Second Building</h3>
+<p>
+Perfect as a guest space, chill-out zone, or workspace.
+</p>
+
+<h3>🌺 Garden</h3>
+<p>
+Spacious tropical garden ideal for relaxing, dining, and enjoying island evenings.
+</p>
+
+<h3>🌊 Location</h3>
+<p>
+Talikud Island – approx. 1 hour by boat from Davao<br>
+Short walk to the beach
+</p>
+
+<h3>✨ Amenities</h3>
+<ul>
+<li>3 bedrooms (sleeps 6–10)</li>
+<li>Air conditioning & WiFi</li>
+<li>Netflix TV</li>
+<li>Fully equipped kitchen</li>
+<li>Outdoor seating & dining</li>
+<li>Private garden</li>
+<li>Walking distance to beach</li>
+<li>Peaceful, secure location</li>
+</ul>
 
 <div class="highlight">
-₱8,995 per night for both houses (no breakfast)
+₱8,995 per night (both houses, no breakfast)
 </div>
 
-<a class="btn whatsapp" href="https://wa.me/639391100692">WhatsApp</a>
-<a class="btn call" href="tel:+639391100692">Call</a>
+<a class="btn whatsapp" href="https://wa.me/639391100692">📲 WhatsApp Now</a>
+<a class="btn call" href="tel:+639391100692">📞 Call Now</a>
+
 </div>
 
 <!-- HOW TO GET THERE -->
