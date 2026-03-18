@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talikud Katulganan</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+}
+
+.hero img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* SLIDER */
+.slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+}
+
+.slide img,
+.slide video {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+/* ARROWS */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.left { left: 10px; }
+.right { right: 10px; }
+
+/* THUMBNAILS */
+.thumbs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+.thumbs img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.thumbs img.active {
+  opacity: 1;
+  border: 2px solid white;
+}
+
+/* BOOK BOX */
+.book {
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.highlight {
+  color: #25D366;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.btn {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+}
+
+.whatsapp { background: #25D366; }
+.call { background: #007BFF; }
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="Hero.jpg">
+</div>
+
+<div class="container">
+
+<h2>Luxury Island Stay</h2>
+<p>
+Quiet island escape just a 10-minute walk to the beach.<br>
+3 rooms – each with a double bed.
+</p>
+
+<!-- SLIDER -->
+<div class="slider">
+
+<button class="arrow left">&#10094;</button>
+
+<div class="slides" id="slides">
+
+<div class="slide"><img src="Hero.jpg"></div>
+
+<div class="slide"><img src="Image%201.JPG"></div>
+<div class="slide"><img src="Image%205.jpg"></div>
+<div class="slide"><img src="Image%206.jpg"></div>
+<div class="slide"><img src="Image%207.jpg"></div>
+<div class="slide"><img src="Image%208.jpg"></div>
+<div class="slide"><img src="Image%209.jpg"></div>
+<div class="slide"><img src="Image%2010.jpg"></div>
+<div class="slide"><img src="Image%2011.jpg"></div>
+<div class="slide"><img src="Image%2012.jpg"></div>
+
+<div class="slide"><video src="Image%202.MP4" controls></video></div>
+<div class="slide"><video src="Image%204.MP4" controls></video></div>
+
+</div>
+
+<button class="arrow right">&#10095;</button>
+
+</div>
+
+<!-- THUMBNAILS -->
+<div class="thumbs" id="thumbs">
+<img src="Hero.jpg">
+<img src="Image%201.JPG">
+<img src="Image%205.jpg">
+<img src="Image%206.jpg">
+<img src="Image%207.jpg">
+<img src="Image%208.jpg">
+<img src="Image%209.jpg">
+<img src="Image%2010.jpg">
+<img src="Image%2011.jpg">
+<img src="Image%2012.jpg">
+</div>
+
+<!-- BOOKING -->
+<div class="book">
+<h3>Accommodation Details</h3>
+
+<p><strong>House 1:</strong> 2 Queen-size beds & 2 extra foam</p>
+<p><strong>House 2:</strong> 1 Queen-size bed & 1 extra foam</p>
+<p>3 Bathrooms with Shower & Bidet</p>
+
+<div class="highlight">
+₱8,995 per night for both houses (no breakfast)
+</div>
+
+<a class="btn whatsapp" href="https://wa.me/639391100692">WhatsApp</a>
+<a class="btn call" href="tel:+639391100692">Call</a>
+</div>
+
+<!-- HOW TO GET THERE -->
+<h2 style="margin-top:30px;">How to get there</h2>
+<p>
+Fly into Davao City<br>
+Boat from Sta. Ana Wharf<br>
+Approx. 1 hour boat ride<br>
+Owner pickup at ferry
+</p>
+
+</div>
+
+<script>
+let index = 0;
+const slides = document.getElementById("slides");
+const thumbs = document.querySelectorAll("#thumbs img");
+const total = slides.children.length;
+
+function update() {
+  slides.style.transform = `translateX(-${index * 100}%)`;
+
+  thumbs.forEach(t => t.classList.remove("active"));
+  if (thumbs[index]) thumbs[index].classList.add("active");
+}
+
+document.querySelector(".right").onclick = () => {
+  index = (index + 1) % total;
+  update();
+};
+
+document.querySelector(".left").onclick = () => {
+  index = (index - 1 + total) % total;
+  update();
+};
+
+thumbs.forEach((t, i) => {
+  t.onclick = () => {
+    index = i;
+    update();
+  };
+});
+
+update();
+</script>
+
+</body>
+</html>
