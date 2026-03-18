@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talikud Katulganan</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+}
+
+/* HERO */
+.hero {
+  background: #000;
+  display: flex;
+  justify-content: center;
+}
+
+.hero img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* SLIDER */
+.slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+.slide img,
+.slide video {
+  max-width: 100%;
+  max-height: 450px;
+  object-fit: contain;
+}
+
+/* ARROWS */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.left { left: 10px; }
+.right { right: 10px; }
+
+/* THUMBS */
+.thumbs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+.thumbs img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.thumbs img.active {
+  opacity: 1;
+  border: 2px solid white;
+}
+
+/* BOOK / CONTENT */
+.book {
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.book h2 { margin-top: 0; }
+.book h3 { margin-top: 20px; }
+
+.book ul {
+  padding-left: 20px;
+}
+
+.highlight {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #25D366;
+}
+
+.btn {
+  display: block;
+  margin-top: 10px;
+  padding: 12px;
+  text-align: center;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+}
+
+.whatsapp { background: #25D366; }
+.call { background: #007BFF; }
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="Hero.jpg">
+</div>
+
+<div class="container">
+
+<h2>Luxury Island Stay</h2>
+<p>
+Quiet island escape just a 10-minute walk to the beach.<br>
+3 rooms – each with a double bed.
+</p>
+
+<!-- SLIDER -->
+<div class="slider">
+
+<button class="arrow left">&#10094;</button>
+
+<div class="slides" id="slides">
+
+<div class="slide"><img src="Hero.jpg"></div>
+
+<div class="slide"><img src="Image%201.JPG"></div>
+<div class="slide"><img src="Image%205.jpg"></div>
+<div class="slide"><img src="Image%206.jpg"></div>
+<div class="slide"><img src="Image%207.jpg"></div>
+<div class="slide"><img src="Image%208.jpg"></div>
+<div class="slide"><img src="Image%209.jpg"></div>
+<div class="slide"><img src="Image%2010.jpg"></div>
+<div class="slide"><img src="Image%2011.jpg"></div>
+<div class="slide"><img src="Image%2012.jpg"></div>
+
+<div class="slide"><video src="Image%202.MP4" controls></video></div>
+<div class="slide"><video src="Image%204.MP4" controls></video></div>
+
+</div>
+
+<button class="arrow right">&#10095;</button>
+
+</div>
+
+<!-- THUMBS -->
+<div class="thumbs" id="thumbs">
+<img src="Hero.jpg">
+<img src="Image%201.JPG">
+<img src="Image%205.jpg">
+<img src="Image%206.jpg">
+<img src="Image%207.jpg">
+<img src="Image%208.jpg">
+<img src="Image%209.jpg">
+<img src="Image%2010.jpg">
+<img src="Image%2011.jpg">
+<img src="Image%2012.jpg">
+</div>
+
+<!-- DESCRIPTION -->
+<div class="book">
+
+<h2>🌴 Katulganan — Your Private Island Retreat on Talikud 🌊</h2>
+
+<p><strong>Two-Building Villa | 3 Bedrooms | Relaxing Garden | Near the Beach</strong></p>
+
+<p>
+Welcome to Katulganan, your peaceful home away from home on beautiful Talikud Island — a quiet sanctuary surrounded by lush gardens, sea breezes, and island charm.
+</p>
+
+<h3>🏡 The Property</h3>
+<p>
+Two buildings set within a tranquil tropical garden, offering space, privacy, and a relaxing island lifestyle.
+</p>
+
+<h3>🛏 The Main House</h3>
+<p>
+<strong>Casa Bamboo:</strong> Queen bed, garden view<br>
+<strong>Casa Palmera:</strong> Queen bed, bright and inviting<br>
+<strong>Casa Coco:</strong> Queen beds, great for families or guests
+</p>
+
+<h3>🏠 Second Building</h3>
+<p>
+Perfect as a guest space, chill-out zone, or workspace.
+</p>
+
+<h3>🌺 Garden</h3>
+<p>
+Spacious tropical garden ideal for relaxing, dining, and enjoying island evenings.
+</p>
+
+<h3>🌊 Location</h3>
+<p>
+Talikud Island – approx. 1 hour by boat from Davao<br>
+Short walk to the beach
+</p>
+
+<h3>✨ Amenities</h3>
+<ul>
+<li>3 bedrooms (sleeps 6–10)</li>
+<li>Air conditioning & WiFi</li>
+<li>Netflix TV</li>
+<li>Fully equipped kitchen</li>
+<li>Outdoor seating & dining</li>
+<li>Private garden</li>
+<li>Walking distance to beach</li>
+<li>Peaceful, secure location</li>
+</ul>
+
+<div class="highlight">
+₱8,995 per night (both houses, no breakfast)
+</div>
+
+<a class="btn whatsapp" href="https://wa.me/639391100692">📲 WhatsApp Now</a>
+<a class="btn call" href="tel:+639391100692">📞 Call Now</a>
+
+</div>
+
+<!-- HOW TO GET THERE -->
+<h2 style="margin-top:30px;">How to get there</h2>
+<p>
+Fly into Davao City<br>
+Boat from Sta. Ana Wharf<br>
+Approx. 1 hour boat ride<br>
+Owner pickup at ferry
+</p>
+
+</div>
+
+<script>
+let index = 0;
+const slides = document.getElementById("slides");
+const thumbs = document.querySelectorAll("#thumbs img");
+const total = slides.children.length;
+
+function update() {
+  slides.style.transform = `translateX(-${index * 100}%)`;
+
+  thumbs.forEach(t => t.classList.remove("active"));
+  if (thumbs[index]) thumbs[index].classList.add("active");
+}
+
+document.querySelector(".right").onclick = () => {
+  index = (index + 1) % total;
+  update();
+};
+
+document.querySelector(".left").onclick = () => {
+  index = (index - 1 + total) % total;
+  update();
+};
+
+thumbs.forEach((t, i) => {
+  t.onclick = () => {
+    index = i;
+    update();
+  };
+});
+
+update();
+</script>
+
+</body>
+</html>
