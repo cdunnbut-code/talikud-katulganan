@@ -20,32 +20,55 @@ body {
 
 .hero img {
   width: 100%;
-  max-height: 520px;
-  object-fit: contain;
+  height: 60vh;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+}
+
+.hero-title {
+  background: rgba(255,255,255,0.85);
+  color: black;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .hero-contact {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+  background: rgba(255,255,255,0.85);
   color: black;
-  font-weight: bold;
-  background: rgba(255,255,255,0.7);
-  padding: 8px 12px;
+  padding: 10px 16px;
   border-radius: 6px;
+  font-weight: bold;
 }
 
-/* CONTAINER */
-.container {
-  max-width: 1100px;
+/* LAYOUT */
+.main {
+  display: flex;
+  max-width: 1200px;
   margin: auto;
+  gap: 30px;
   padding: 20px;
+}
+
+.content {
+  flex: 2;
+}
+
+.sidebar {
+  flex: 1;
 }
 
 /* SLIDER */
 .slider {
   position: relative;
   overflow: hidden;
+  border-radius: 12px;
 }
 
 .slides {
@@ -57,13 +80,12 @@ body {
   min-width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: #000;
+  background: black;
 }
 
 .slide img,
 .slide video {
-  max-width: 100%;
+  width: 100%;
   max-height: 450px;
   object-fit: contain;
 }
@@ -73,7 +95,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 28px;
+  font-size: 30px;
   background: rgba(0,0,0,0.5);
   border: none;
   color: white;
@@ -87,17 +109,18 @@ body {
 /* THUMBS */
 .thumbs {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   overflow-x: auto;
   margin-top: 10px;
 }
 
 .thumbs img {
-  width: 80px;
-  height: 60px;
+  width: 70px;
+  height: 55px;
   object-fit: cover;
   opacity: 0.6;
   cursor: pointer;
+  border-radius: 4px;
 }
 
 .thumbs img.active {
@@ -105,24 +128,24 @@ body {
   border: 2px solid white;
 }
 
-/* BOOK */
-.book {
+/* BOOKING CARD */
+.booking {
   background: #1c1c1c;
   padding: 20px;
   border-radius: 12px;
-  margin-top: 20px;
+  position: sticky;
+  top: 20px;
 }
 
-.highlight {
-  color: #25D366;
-  font-weight: bold;
-  margin-top: 10px;
+.price {
+  font-size: 22px;
+  margin-bottom: 15px;
 }
 
 .btn {
   display: block;
-  margin-top: 10px;
   padding: 12px;
+  margin-top: 10px;
   text-align: center;
   border-radius: 6px;
   text-decoration: none;
@@ -132,6 +155,14 @@ body {
 .whatsapp { background: #25D366; }
 .call { background: #007BFF; }
 
+/* TEXT */
+h1, h2 { margin-top: 20px; }
+
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+  }
+}
 </style>
 </head>
 
@@ -139,17 +170,24 @@ body {
 
 <!-- HERO -->
 <div class="hero">
-  <img src="Hero.jpg">
+  <img src="hero.jpg">
 
-  <div class="hero-contact">
-    📧 facebook.com/talikudkatulganan/<br>
-    📞 +63 939 110 0692
+  <div class="hero-overlay">
+    <div class="hero-title">For reservations and inquiries</div>
+    <div class="hero-contact">
+      facebook.com/talikudkatulganan/<br>
+      +63 939 110 0692
+    </div>
   </div>
 </div>
 
-<div class="container">
+<div class="main">
 
-<h2>Luxury Island Stay</h2>
+<!-- LEFT CONTENT -->
+<div class="content">
+
+<h1>Luxury Island Stay</h1>
+
 <p>
 Quiet island escape just a 10-minute walk to the beach.<br>
 3 rooms – each with a double bed.
@@ -162,25 +200,25 @@ Quiet island escape just a 10-minute walk to the beach.<br>
 
 <div class="slides" id="slides">
 
-<div class="slide"><img src="Image%201.JPG"></div>
-<div class="slide"><img src="Image%205.jpg"></div>
-<div class="slide"><img src="Image%206.jpg"></div>
-<div class="slide"><img src="Image%207.jpg"></div>
-<div class="slide"><img src="Image%208.jpg"></div>
-<div class="slide"><img src="Image%209.jpg"></div>
-<div class="slide"><img src="Image%2010.jpg"></div>
-<div class="slide"><img src="Image%2011.jpg"></div>
-<div class="slide"><img src="Image%2012.jpg"></div>
+<div class="slide"><img src="img1.jpg"></div>
+<div class="slide"><img src="img2.jpg"></div>
+<div class="slide"><img src="img3.jpg"></div>
+<div class="slide"><img src="img4.jpg"></div>
+<div class="slide"><img src="img5.jpg"></div>
+<div class="slide"><img src="img6.jpg"></div>
+<div class="slide"><img src="img7.jpg"></div>
+<div class="slide"><img src="img8.jpg"></div>
+<div class="slide"><img src="img9.jpg"></div>
 
 <div class="slide">
-  <video controls width="100%">
-    <source src="7a0fa7cc-cfcf-4bcc-9918-ab625fabfc27.MP4" type="video/mp4">
+  <video controls>
+    <source src="video1.mp4" type="video/mp4">
   </video>
 </div>
 
 <div class="slide">
-  <video controls width="100%">
-    <source src="Image%204.MP4" type="video/mp4">
+  <video controls>
+    <source src="video2.mp4" type="video/mp4">
   </video>
 </div>
 
@@ -192,55 +230,22 @@ Quiet island escape just a 10-minute walk to the beach.<br>
 
 <!-- THUMBNAILS -->
 <div class="thumbs" id="thumbs">
-<img src="Image%201.JPG">
-<img src="Image%205.jpg">
-<img src="Image%206.jpg">
-<img src="Image%207.jpg">
-<img src="Image%208.jpg">
-<img src="Image%209.jpg">
-<img src="Image%2010.jpg">
-<img src="Image%2011.jpg">
-<img src="Image%2012.jpg">
+<img src="img1.jpg">
+<img src="img2.jpg">
+<img src="img3.jpg">
+<img src="img4.jpg">
+<img src="img5.jpg">
+<img src="img6.jpg">
+<img src="img7.jpg">
+<img src="img8.jpg">
+<img src="img9.jpg">
 </div>
 
-<!-- DESCRIPTION -->
-<div class="book">
-
-<h2>🌴 Katulganan — Your Private Island Retreat on Talikud 🌊</h2>
-
-<p><strong>Two-Building Villa | 3 Bedrooms | Relaxing Garden | Near the Beach</strong></p>
-
+<h2>About the property</h2>
 <p>
-Welcome to Katulganan, your peaceful home away from home on beautiful Talikud Island.
+Private two-building villa in a peaceful tropical garden just minutes from the beach.
+Perfect for families, groups, or remote working in paradise.
 </p>
-
-<h3>🏡 The Property</h3>
-<p>Two buildings set within a tranquil tropical garden.</p>
-
-<h3>🛏 Rooms</h3>
-<p>
-Casa Bamboo – Queen bed<br>
-Casa Palmera – Queen bed<br>
-Casa Coco – Queen beds
-</p>
-
-<h3>✨ Amenities</h3>
-<ul>
-<li>Air conditioning & WiFi</li>
-<li>Netflix TV</li>
-<li>Fully equipped kitchen</li>
-<li>Private garden</li>
-<li>Walk to beach</li>
-</ul>
-
-<div class="highlight">
-₱8,995 per night (both houses)
-</div>
-
-<a class="btn whatsapp" href="https://wa.me/639391100692">WhatsApp</a>
-<a class="btn call" href="tel:+639391100692">Call</a>
-
-</div>
 
 <h2>How to get there</h2>
 <p>
@@ -249,6 +254,31 @@ Boat from Sta. Ana Wharf<br>
 1 hour boat ride<br>
 Owner pickup at ferry
 </p>
+
+</div>
+
+<!-- RIGHT BOOKING PANEL -->
+<div class="sidebar">
+
+<div class="booking">
+
+<div class="price">
+₱8,995 / night
+</div>
+
+<div>Entire property • 6–10 guests</div>
+
+<a class="btn whatsapp" href="https://wa.me/639391100692">
+WhatsApp
+</a>
+
+<a class="btn call" href="tel:+639391100692">
+Call Now
+</a>
+
+</div>
+
+</div>
 
 </div>
 
