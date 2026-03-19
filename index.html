@@ -14,6 +14,7 @@ body {
 }
 
 /* HERO */
+.hero { position: relative; }
 .hero img {
   width: 100%;
   height: 60vh;
@@ -23,9 +24,6 @@ body {
   position: absolute;
   bottom: 30px;
   left: 30px;
-}
-.hero {
-  position: relative;
 }
 .hero-box {
   background: rgba(255,255,255,0.9);
@@ -57,9 +55,7 @@ body {
   display: flex;
   transition: transform 0.4s ease;
 }
-.slide {
-  min-width: 100%;
-}
+.slide { min-width: 100%; }
 .slide img,
 .slide video {
   width: 100%;
@@ -105,17 +101,15 @@ body {
   opacity: 1;
   outline: 2px solid white;
 }
-
-/* VIDEO ICON */
 .play-icon {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 20px;
   background: rgba(0,0,0,0.6);
   padding: 4px 8px;
   border-radius: 50%;
+  font-size: 14px;
 }
 
 /* BOOKING */
@@ -141,7 +135,7 @@ body {
 /* DESCRIPTION */
 .book {
   margin-top: 30px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 .book h2, .book h3 {
   margin-top: 20px;
@@ -225,9 +219,61 @@ body {
 
 <!-- DESCRIPTION -->
 <div class="book">
+
 <h2>🌴 Katulganan — Your Private Island Retreat on Talikud 🌊</h2>
-<p>Two-Building Villa | 3 Bedrooms | Garden | Near the Beach</p>
-<p>Peaceful island home surrounded by nature.</p>
+
+<p><strong>Two-Building Villa | 3 Bedrooms | Relaxing Garden | Near the Beach</strong></p>
+
+<p>
+Welcome to Katulganan, your peaceful home away from home on beautiful Talikud Island — a quiet sanctuary surrounded by lush gardens, gentle sea breezes, and island charm.
+</p>
+
+<h3>🏡 The Property</h3>
+<p>
+Set within a tranquil tropical garden, Katulganan features two charming buildings, giving guests a unique island-living experience with plenty of space to relax and unwind.
+</p>
+
+<p>
+Enjoy your mornings surrounded by birdsong and fresh air, spend the afternoon by the sea, and end your day in the garden with a cool drink under the stars.
+</p>
+
+<h3>🛏 The Main House</h3>
+<p>
+<strong>Casa Bamboo:</strong> Queen bed with garden view<br>
+<strong>Casa Palmera:</strong> Queen bed, bright and inviting<br>
+<strong>Casa Coco:</strong> Queen beds, perfect for guests
+</p>
+
+<h3>🏠 The Second Building</h3>
+<p>
+Perfect as a guest suite, chill-out area, or workspace.
+</p>
+
+<h3>🌺 Garden</h3>
+<p>
+Relax, dine outdoors, and enjoy peaceful evenings.
+</p>
+
+<h3>🌊 Location</h3>
+<p>
+Talikud Island — approx. 1 hour from Davao<br>
+Short walk to beach
+</p>
+
+<h3>✨ Amenities</h3>
+<ul>
+<li>3 bedrooms (6–10 guests)</li>
+<li>WiFi & Air conditioning</li>
+<li>Netflix TV</li>
+<li>Kitchen</li>
+<li>Private garden</li>
+</ul>
+
+<div style="background:#222;padding:15px;border-radius:10px;margin-top:20px;">
+<strong>₱8,995 per night</strong><br>
+Both houses • No breakfast
+</div>
+
 </div>
 
 </div>
@@ -272,22 +318,6 @@ thumbs.forEach((thumb, i) => {
     index = i;
     update();
   };
-});
-
-/* SWIPE SUPPORT */
-let startX = 0;
-
-slides.addEventListener("touchstart", e => {
-  startX = e.touches[0].clientX;
-});
-
-slides.addEventListener("touchend", e => {
-  let endX = e.changedTouches[0].clientX;
-  if (startX - endX > 50) index++;
-  if (endX - startX > 50) index--;
-  if (index < 0) index = slides.children.length - 1;
-  if (index >= slides.children.length) index = 0;
-  update();
 });
 </script>
 
