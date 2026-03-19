@@ -27,13 +27,13 @@ body {
   bottom: 30px;
   left: 30px;
 }
-.hero-title, .hero-contact {
+.hero-box {
   background: rgba(255,255,255,0.85);
   color: black;
   padding: 10px 16px;
   border-radius: 6px;
-  font-weight: bold;
   margin-bottom: 8px;
+  font-weight: bold;
 }
 
 /* LAYOUT */
@@ -55,7 +55,7 @@ body {
 }
 .slides {
   display: flex;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
 }
 .slide {
   min-width: 100%;
@@ -72,7 +72,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 30px;
+  font-size: 28px;
   background: rgba(0,0,0,0.5);
   border: none;
   color: white;
@@ -122,7 +122,17 @@ body {
 .whatsapp { background: #25D366; }
 .call { background: #007BFF; }
 
-/* MOBILE */
+/* DESCRIPTION */
+.book {
+  margin-top: 30px;
+}
+.book h2 {
+  margin-bottom: 10px;
+}
+.book p {
+  line-height: 1.6;
+}
+
 @media (max-width: 900px) {
   .main { flex-direction: column; }
 }
@@ -135,8 +145,8 @@ body {
 <div class="hero">
   <img src="hero.jpg">
   <div class="hero-overlay">
-    <div class="hero-title">For reservations and inquiries</div>
-    <div class="hero-contact">
+    <div class="hero-box">For reservations and inquiries</div>
+    <div class="hero-box">
       facebook.com/talikudkatulganan/<br>
       +63 939 110 0692
     </div>
@@ -148,12 +158,17 @@ body {
 <div class="content">
 
 <h1>Luxury Island Stay</h1>
+<p>
+Quiet island escape just a 10-minute walk to the beach.<br>
+3 rooms – each with a double bed.
+</p>
 
 <!-- SLIDER -->
 <div class="slider">
 <button class="arrow left">&#10094;</button>
 
 <div class="slides" id="slides">
+
 <div class="slide"><img src="img1.jpg"></div>
 <div class="slide"><img src="img2.jpg"></div>
 <div class="slide"><img src="img3.jpg"></div>
@@ -165,11 +180,17 @@ body {
 <div class="slide"><img src="img9.jpg"></div>
 
 <div class="slide">
-  <video controls><source src="video1.mp4"></video>
+  <video controls>
+    <source src="video1.mp4" type="video/mp4">
+  </video>
 </div>
+
 <div class="slide">
-  <video controls><source src="video2.mp4"></video>
+  <video controls>
+    <source src="video2.mp4" type="video/mp4">
+  </video>
 </div>
+
 </div>
 
 <button class="arrow right">&#10095;</button>
@@ -188,6 +209,35 @@ body {
 <img src="img9.jpg">
 </div>
 
+<!-- DESCRIPTION -->
+<div class="book">
+
+<h2>🌴 Katulganan — Your Private Island Retreat</h2>
+
+<p>
+Two-Building Villa • 3 Bedrooms • Garden • Near the Beach
+</p>
+
+<p>
+Peaceful island home surrounded by nature, just minutes from the beach.
+</p>
+
+<h3>🏡 The Property</h3>
+<p>Two buildings within a tropical garden.</p>
+
+<h3>🛏 Rooms</h3>
+<p>3 queen rooms, sleeps 6–10 guests.</p>
+
+<h3>✨ Amenities</h3>
+<ul>
+<li>WiFi & Air conditioning</li>
+<li>Netflix TV</li>
+<li>Fully equipped kitchen</li>
+<li>Private garden</li>
+</ul>
+
+</div>
+
 </div>
 
 <!-- SIDEBAR -->
@@ -196,8 +246,14 @@ body {
 <h3>₱8,995 / night</h3>
 <p>Entire property • 6–10 guests</p>
 
-<a class="btn whatsapp" href="https://wa.me/639391100692">WhatsApp</a>
-<a class="btn call" href="tel:+639391100692">Call Now</a>
+<a class="btn whatsapp" href="https://wa.me/639391100692">
+WhatsApp
+</a>
+
+<a class="btn call" href="tel:+639391100692">
+Call Now
+</a>
+
 </div>
 </div>
 
