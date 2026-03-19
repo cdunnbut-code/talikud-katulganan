@@ -8,15 +8,12 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
   background: #111;
   color: white;
 }
 
 /* HERO */
-.hero {
-  position: relative;
-}
 .hero img {
   width: 100%;
   height: 60vh;
@@ -27,13 +24,16 @@ body {
   bottom: 30px;
   left: 30px;
 }
+.hero {
+  position: relative;
+}
 .hero-box {
   background: rgba(255,255,255,0.9);
   color: black;
   padding: 10px 16px;
-  border-radius: 6px;
+  border-radius: 8px;
   margin-bottom: 8px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 /* LAYOUT */
@@ -51,7 +51,7 @@ body {
 .slider {
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 .slides {
   display: flex;
@@ -63,7 +63,7 @@ body {
 .slide img,
 .slide video {
   width: 100%;
-  max-height: 450px;
+  max-height: 480px;
   object-fit: contain;
 }
 
@@ -72,13 +72,13 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 28px;
-  background: rgba(0,0,0,0.5);
+  font-size: 26px;
+  background: rgba(0,0,0,0.6);
   border: none;
   color: white;
   padding: 10px;
   cursor: pointer;
-  z-index: 10;
+  border-radius: 50%;
 }
 .left { left: 10px; }
 .right { right: 10px; }
@@ -86,41 +86,57 @@ body {
 /* THUMBNAILS */
 .thumbs {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   overflow-x: auto;
   margin-top: 10px;
 }
-.thumbs img {
-  width: 70px;
+.thumb {
+  position: relative;
+}
+.thumb img {
+  width: 75px;
   height: 55px;
   object-fit: cover;
   opacity: 0.6;
+  border-radius: 6px;
   cursor: pointer;
 }
-.thumbs img.active {
+.thumb.active img {
   opacity: 1;
-  border: 2px solid white;
+  outline: 2px solid white;
+}
+
+/* VIDEO ICON */
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  background: rgba(0,0,0,0.6);
+  padding: 4px 8px;
+  border-radius: 50%;
 }
 
 /* BOOKING */
 .booking {
   background: #1c1c1c;
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 14px;
   position: sticky;
   top: 20px;
 }
 .btn {
   display: block;
-  padding: 12px;
+  padding: 14px;
   margin-top: 10px;
   text-align: center;
-  border-radius: 6px;
+  border-radius: 8px;
   text-decoration: none;
-  color: white;
+  font-weight: bold;
 }
-.whatsapp { background: #25D366; }
-.call { background: #007BFF; }
+.whatsapp { background: #25D366; color:white; }
+.call { background: #007BFF; color:white; }
 
 /* DESCRIPTION */
 .book {
@@ -131,6 +147,7 @@ body {
   margin-top: 20px;
 }
 
+/* MOBILE */
 @media (max-width: 900px) {
   .main { flex-direction: column; }
 }
@@ -157,11 +174,6 @@ body {
 
 <h1>Luxury Island Stay</h1>
 
-<p>
-Quiet island escape just a 10-minute walk to the beach.<br>
-3 rooms – each with a double bed.
-</p>
-
 <!-- SLIDER -->
 <div class="slider">
 <button class="arrow left">&#10094;</button>
@@ -178,17 +190,8 @@ Quiet island escape just a 10-minute walk to the beach.<br>
 <div class="slide"><img src="img8.jpg"></div>
 <div class="slide"><img src="img9.jpg"></div>
 
-<div class="slide">
-  <video controls>
-    <source src="video1.mp4" type="video/mp4">
-  </video>
-</div>
-
-<div class="slide">
-  <video controls>
-    <source src="video2.mp4" type="video/mp4">
-  </video>
-</div>
+<div class="slide"><video controls><source src="video1.mp4"></video></div>
+<div class="slide"><video controls><source src="video2.mp4"></video></div>
 
 </div>
 
@@ -196,74 +199,35 @@ Quiet island escape just a 10-minute walk to the beach.<br>
 </div>
 
 <!-- THUMBNAILS -->
-<div class="thumbs">
-<img src="img1.jpg">
-<img src="img2.jpg">
-<img src="img3.jpg">
-<img src="img4.jpg">
-<img src="img5.jpg">
-<img src="img6.jpg">
-<img src="img7.jpg">
-<img src="img8.jpg">
-<img src="img9.jpg">
+<div class="thumbs" id="thumbs">
+
+<div class="thumb"><img src="img1.jpg"></div>
+<div class="thumb"><img src="img2.jpg"></div>
+<div class="thumb"><img src="img3.jpg"></div>
+<div class="thumb"><img src="img4.jpg"></div>
+<div class="thumb"><img src="img5.jpg"></div>
+<div class="thumb"><img src="img6.jpg"></div>
+<div class="thumb"><img src="img7.jpg"></div>
+<div class="thumb"><img src="img8.jpg"></div>
+<div class="thumb"><img src="img9.jpg"></div>
+
+<div class="thumb">
+  <img src="img1.jpg">
+  <div class="play-icon">▶</div>
+</div>
+
+<div class="thumb">
+  <img src="img2.jpg">
+  <div class="play-icon">▶</div>
+</div>
+
 </div>
 
 <!-- DESCRIPTION -->
 <div class="book">
-
 <h2>🌴 Katulganan — Your Private Island Retreat on Talikud 🌊</h2>
-
-<p><strong>Two-Building Villa | 3 Bedrooms | Relaxing Garden | Near the Beach</strong></p>
-
-<p>
-Welcome to Katulganan, your peaceful home away from home on beautiful Talikud Island — a quiet sanctuary surrounded by lush gardens, gentle sea breezes, and island charm.
-</p>
-
-<h3>🏡 The Property</h3>
-<p>
-Set within a tranquil tropical garden, Katulganan features two charming buildings, offering space, privacy, and a relaxing island lifestyle.
-</p>
-
-<h3>🛏 The Main House</h3>
-<p>
-<strong>Casa Bamboo:</strong> Queen bed, garden view<br>
-<strong>Casa Palmera:</strong> Queen bed, bright and inviting<br>
-<strong>Casa Coco:</strong> Queen beds, ideal for families or extra guests
-</p>
-
-<h3>🏠 Second Building</h3>
-<p>
-Perfect as a guest space, chill-out area, or workspace.
-</p>
-
-<h3>🌺 Garden</h3>
-<p>
-Spacious tropical garden ideal for relaxing, outdoor dining, and peaceful evenings.
-</p>
-
-<h3>🌊 Location</h3>
-<p>
-Talikud Island — approx. 1 hour by boat from Davao<br>
-Short walk to the beach
-</p>
-
-<h3>✨ Amenities</h3>
-<ul>
-<li>3 bedrooms (sleeps 6–10)</li>
-<li>Air conditioning & WiFi</li>
-<li>Netflix TV</li>
-<li>Fully equipped kitchen</li>
-<li>Outdoor seating & dining</li>
-<li>Private garden</li>
-<li>Walking distance to beach</li>
-<li>Peaceful, secure location</li>
-</ul>
-
-<div style="background:#222;padding:15px;border-radius:8px;margin-top:15px;">
-<strong>₱8,995 per night</strong><br>
-Both houses • No breakfast
-</div>
-
+<p>Two-Building Villa | 3 Bedrooms | Garden | Near the Beach</p>
+<p>Peaceful island home surrounded by nature.</p>
 </div>
 
 </div>
@@ -285,21 +249,46 @@ Both houses • No breakfast
 <script>
 let index = 0;
 const slides = document.getElementById("slides");
-const total = slides.children.length;
+const thumbs = document.querySelectorAll(".thumb");
 
 function update() {
   slides.style.transform = `translateX(-${index * 100}%)`;
+  thumbs.forEach(t => t.classList.remove("active"));
+  if (thumbs[index]) thumbs[index].classList.add("active");
 }
 
 document.querySelector(".right").onclick = () => {
-  index = (index + 1) % total;
+  index = (index + 1) % slides.children.length;
   update();
 };
 
 document.querySelector(".left").onclick = () => {
-  index = (index - 1 + total) % total;
+  index = (index - 1 + slides.children.length) % slides.children.length;
   update();
 };
+
+thumbs.forEach((thumb, i) => {
+  thumb.onclick = () => {
+    index = i;
+    update();
+  };
+});
+
+/* SWIPE SUPPORT */
+let startX = 0;
+
+slides.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+slides.addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) index++;
+  if (endX - startX > 50) index--;
+  if (index < 0) index = slides.children.length - 1;
+  if (index >= slides.children.length) index = 0;
+  update();
+});
 </script>
 
 </body>
