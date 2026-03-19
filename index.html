@@ -141,7 +141,6 @@ body {
   margin-top: 20px;
 }
 
-/* MOBILE */
 @media (max-width: 900px) {
   .main { flex-direction: column; }
 }
@@ -230,50 +229,25 @@ Welcome to Katulganan, your peaceful home away from home on beautiful Talikud Is
 
 <h3>🏡 The Property</h3>
 <p>
-Set within a tranquil tropical garden, Katulganan features two charming buildings, giving guests a unique island-living experience with plenty of space to relax and unwind.
-</p>
-
-<p>
-Enjoy your mornings surrounded by birdsong and fresh air, spend the afternoon by the sea, and end your day in the garden with a cool drink under the stars.
+Set within a tranquil tropical garden, Katulganan features two charming buildings.
 </p>
 
 <h3>🛏 The Main House</h3>
 <p>
-<strong>Casa Palmera:</strong> Queen bed, bright and inviting<br>
-<strong>Casa Coco:</strong> Queen beds, perfect for guests
+<strong>Casa Palmera:</strong> Queen bed<br>
+<strong>Casa Coco:</strong> Queen beds
 </p>
-<p>
 
 <h3>🏠 The Second Building</h3>
-
-<strong>Casa Bamboo:</strong> Queen bed with garden view<br>
-Perfect as a guest suite, chill-out area, or workspace.
-</p>
-
-<h3>🌺 Garden</h3>
 <p>
-Relax, dine outdoors, and enjoy peaceful evenings.
+<strong>Casa Bamboo:</strong> Queen bed with garden view<br>
+Perfect for guests or workspace
 </p>
 
 <h3>🌊 Location</h3>
 <p>
-Talikud Island — approx. 1 hour by ferry from Sta. Ana Wharf Davao<br>
-Short walk to beach
+Talikud Island — 1 hour by ferry from Davao
 </p>
-
-<h3>✨ Amenities</h3>
-<ul>
-<li>3 bedrooms (6–10 guests)</li>
-<li>WiFi & Air conditioning</li>
-<li>Netflix TV</li>
-<li>Kitchen</li>
-<li>Private garden</li>
-</ul>
-
-<div style="background:#222;padding:15px;border-radius:10px;margin-top:20px;">
-<strong>₱8,995 per night</strong><br>
-Both houses • No breakfast
-</div>
 
 </div>
 
@@ -320,6 +294,25 @@ thumbs.forEach((thumb, i) => {
     update();
   };
 });
+
+/* MOBILE SWIPE */
+let startX = 0;
+
+slides.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+slides.addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) index++;
+  if (endX - startX > 50) index--;
+  if (index < 0) index = slides.children.length - 1;
+  if (index >= slides.children.length) index = 0;
+  update();
+});
+
+/* INIT */
+update();
 </script>
 
 </body>
