@@ -109,7 +109,6 @@ body {
   background: rgba(0,0,0,0.6);
   padding: 4px 8px;
   border-radius: 50%;
-  font-size: 14px;
 }
 
 /* BOOKING */
@@ -139,6 +138,13 @@ body {
 }
 .book h2, .book h3 {
   margin-top: 20px;
+}
+
+/* MAP */
+.map {
+  margin-top: 30px;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 @media (max-width: 900px) {
@@ -204,15 +210,8 @@ body {
 <div class="thumb"><img src="img8.jpg"></div>
 <div class="thumb"><img src="img9.jpg"></div>
 
-<div class="thumb">
-  <img src="img1.jpg">
-  <div class="play-icon">▶</div>
-</div>
-
-<div class="thumb">
-  <img src="img2.jpg">
-  <div class="play-icon">▶</div>
-</div>
+<div class="thumb"><img src="img1.jpg"><div class="play-icon">▶</div></div>
+<div class="thumb"><img src="img2.jpg"><div class="play-icon">▶</div></div>
 
 </div>
 
@@ -229,7 +228,7 @@ Welcome to Katulganan, your peaceful home away from home on beautiful Talikud Is
 
 <h3>🏡 The Property</h3>
 <p>
-Set within a tranquil tropical garden, Katulganan features two charming buildings.
+Set within a tranquil tropical garden, Katulganan features two charming buildings, giving guests space, privacy, and a relaxing island lifestyle.
 </p>
 
 <h3>🛏 The Main House</h3>
@@ -241,14 +240,46 @@ Set within a tranquil tropical garden, Katulganan features two charming building
 <h3>🏠 The Second Building</h3>
 <p>
 <strong>Casa Bamboo:</strong> Queen bed with garden view<br>
-Perfect for guests or workspace
+Perfect as a guest suite, chill-out area, or workspace.
+</p>
+
+<h3>🌺 Garden</h3>
+<p>
+Relax, dine outdoors, and enjoy peaceful evenings.
 </p>
 
 <h3>🌊 Location</h3>
 <p>
-Talikud Island — 1 hour by ferry from Davao
+Talikud Island — approx. 1 hour by ferry from Sta. Ana Wharf Davao<br>
+Short walk to beach
 </p>
 
+<h3>✨ Amenities</h3>
+<ul>
+<li>3 bedrooms (6–10 guests)</li>
+<li>WiFi & Air conditioning</li>
+<li>Netflix TV</li>
+<li>Kitchen</li>
+<li>Private garden</li>
+</ul>
+
+<div style="background:#222;padding:15px;border-radius:10px;margin-top:20px;">
+<strong>₱8,995 per night</strong><br>
+Both houses • No breakfast
+</div>
+
+</div>
+
+<!-- GOOGLE MAP -->
+<div class="map">
+<iframe 
+  src="https://www.google.com/maps?q=Talikud+Island&output=embed"
+  width="100%" 
+  height="300" 
+  style="border:0;" 
+  allowfullscreen="" 
+  loading="lazy">
+</iframe>
 </div>
 
 </div>
@@ -293,22 +324,6 @@ thumbs.forEach((thumb, i) => {
     index = i;
     update();
   };
-});
-
-/* MOBILE SWIPE */
-let startX = 0;
-
-slides.addEventListener("touchstart", e => {
-  startX = e.touches[0].clientX;
-});
-
-slides.addEventListener("touchend", e => {
-  let endX = e.changedTouches[0].clientX;
-  if (startX - endX > 50) index++;
-  if (endX - startX > 50) index--;
-  if (index < 0) index = slides.children.length - 1;
-  if (index >= slides.children.length) index = 0;
-  update();
 });
 
 /* INIT */
