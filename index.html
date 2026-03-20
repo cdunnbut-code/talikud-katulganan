@@ -56,11 +56,16 @@ body {
   transition: transform 0.4s ease;
 }
 .slide { min-width: 100%; }
+
 .slide img,
 .slide video {
   width: 100%;
   max-height: 480px;
   object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.slide img:hover {
+  transform: scale(1.02);
 }
 
 /* ARROWS */
@@ -96,11 +101,16 @@ body {
   opacity: 0.6;
   border-radius: 6px;
   cursor: pointer;
+  transition: 0.2s;
+}
+.thumb:hover img {
+  opacity: 0.9;
 }
 .thumb.active img {
   opacity: 1;
   outline: 2px solid white;
 }
+
 .play-icon {
   position: absolute;
   top: 50%;
@@ -179,7 +189,9 @@ body {
 
 <div class="slides" id="slides">
 
+<!-- HERO ALSO IN SLIDER -->
 <div class="slide"><img src="hero.jpg"></div>
+
 <div class="slide"><img src="img1.jpg"></div>
 <div class="slide"><img src="img2.jpg"></div>
 <div class="slide"><img src="img3.jpg"></div>
@@ -202,6 +214,7 @@ body {
 <div class="thumbs" id="thumbs">
 
 <div class="thumb"><img src="hero.jpg"></div>
+
 <div class="thumb"><img src="img1.jpg"></div>
 <div class="thumb"><img src="img2.jpg"></div>
 <div class="thumb"><img src="img3.jpg"></div>
@@ -272,14 +285,13 @@ Both houses • No breakfast
 
 </div>
 
-<!-- GOOGLE MAP -->
+<!-- MAP -->
 <div class="map">
 <iframe 
   src="https://www.google.com/maps?q=Talikud+Island&output=embed"
   width="100%" 
   height="300" 
   style="border:0;" 
-  allowfullscreen="" 
   loading="lazy">
 </iframe>
 </div>
@@ -326,6 +338,22 @@ thumbs.forEach((thumb, i) => {
     index = i;
     update();
   };
+});
+
+/* SWIPE SUPPORT */
+let startX = 0;
+
+slides.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+slides.addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) index++;
+  if (endX - startX > 50) index--;
+  if (index < 0) index = slides.children.length - 1;
+  if (index >= slides.children.length) index = 0;
+  update();
 });
 
 /* INIT */
