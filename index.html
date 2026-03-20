@@ -13,25 +13,31 @@ body {
   color: white;
 }
 
-/* HERO (FIXED) */
+/* 🔥 HERO ULTRA */
 .hero {
   position: relative;
+  overflow: hidden;
 }
 .hero img {
   width: 100%;
-  height: 40vh;
+  height: 30vh;
   object-fit: cover;
-  object-position: center 25%; /* FIXED: shows top of trees */
+  object-position: center 18%;
+  animation: zoomHero 12s ease-in-out infinite alternate;
 }
 
-/* fade */
+@keyframes zoomHero {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
 .hero::after {
   content: "";
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 100px;
-  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  height: 80px;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
 }
 
 /* LAYOUT */
@@ -44,14 +50,12 @@ body {
 }
 .content { flex: 2; }
 
-/* SIDEBAR FIXED */
 .sidebar {
-  flex: 1.5;
-  min-width: 320px;
-  max-width: 360px;
+  flex: 1.4;
+  min-width: 300px;
 }
 
-/* SLIDER */
+/* 🔥 SLIDER ULTRA */
 .slider {
   position: relative;
   overflow: hidden;
@@ -59,7 +63,7 @@ body {
 }
 .slides {
   display: flex;
-  transition: transform 0.4s ease;
+  transition: transform 0.6s cubic-bezier(.4,0,.2,1);
 }
 .slide { min-width: 100%; }
 
@@ -68,9 +72,6 @@ body {
   width: 100%;
   max-height: 480px;
   object-fit: contain;
-}
-.slide img:hover {
-  transform: scale(1.02);
 }
 
 /* ARROWS */
@@ -85,18 +86,28 @@ body {
   padding: 10px;
   cursor: pointer;
   border-radius: 50%;
+  transition: 0.3s;
+}
+.arrow:hover {
+  background: rgba(255,255,255,0.2);
 }
 .left { left: 10px; }
 .right { right: 10px; }
 
-/* THUMBS */
+/* 🔥 THUMBS ULTRA */
 .thumbs {
   display: flex;
   gap: 8px;
   overflow-x: auto;
   margin-top: 10px;
 }
-.thumb { position: relative; }
+.thumb {
+  position: relative;
+  transition: transform 0.2s;
+}
+.thumb:hover {
+  transform: scale(1.05);
+}
 
 .thumb img {
   width: 75px;
@@ -117,17 +128,21 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   background: rgba(0,0,0,0.6);
-  padding: 4px 8px;
+  padding: 5px 9px;
   border-radius: 50%;
 }
 
 /* BOOKING */
 .booking {
   background: #1c1c1c;
-  padding: 20px;
+  padding: 22px;
   border-radius: 14px;
   position: sticky;
   top: 20px;
+}
+
+.booking h3 {
+  margin: 0 0 5px;
 }
 
 .booking-info {
@@ -137,7 +152,6 @@ body {
   line-height: 1.8;
   border-top: 1px solid #333;
   padding-top: 12px;
-  word-break: break-word; /* FIXED overflow */
 }
 
 .btn {
@@ -148,7 +162,10 @@ body {
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
+  transition: 0.2s;
 }
+.btn:hover { opacity: 0.9; }
+
 .whatsapp { background: #25D366; color:white; }
 .call { background: #007BFF; color:white; }
 
@@ -188,13 +205,12 @@ body {
 <h1>Luxury Island Stay</h1>
 
 <!-- SLIDER -->
-<div class="slider">
+<div class="slider" id="slider">
 <button class="arrow left">&#10094;</button>
 
 <div class="slides" id="slides">
 
 <div class="slide"><img src="hero.jpg"></div>
-
 <div class="slide"><img src="img1.jpg"></div>
 <div class="slide"><img src="img2.jpg"></div>
 <div class="slide"><img src="img3.jpg"></div>
@@ -233,48 +249,9 @@ body {
 
 <!-- DESCRIPTION -->
 <div class="book">
-
 <h2>🌴 Katulganan — Your Private Island Retreat on Talikud 🌊</h2>
-
 <p><strong>Two-Building Villa | 3 Bedrooms | Relaxing Garden | Near the Beach</strong></p>
-
-<p>
-Welcome to Katulganan, your peaceful home away from home on beautiful Talikud Island.
-</p>
-
-<h3>🏡 The Property</h3>
-<p>Two buildings set within a tranquil tropical garden.</p>
-
-<h3>🛏 The Main House</h3>
-<p>
-<strong>Casa Palmera:</strong> Queen bed<br>
-<strong>Casa Coco:</strong> Queen beds
-</p>
-
-<h3>🏠 The Second Building</h3>
-<p>
-<strong>Casa Bamboo:</strong> Queen bed with garden view<br>
-Perfect as a guest suite, chill-out area, or workspace.
-</p>
-
-<h3>🌺 Garden</h3>
-<p>Relax, dine outdoors, and enjoy peaceful evenings.</p>
-
-<h3>🌊 Location</h3>
-<p>
-Talikud Island — approx. 1 hour by ferry from Sta. Ana Wharf Davao<br>
-Short walk to beach
-</p>
-
-<h3>✨ Amenities</h3>
-<ul>
-<li>3 bedrooms (6–10 guests)</li>
-<li>WiFi & Air conditioning</li>
-<li>Netflix TV</li>
-<li>Kitchen</li>
-<li>Private garden</li>
-</ul>
-
+<p>Peaceful island home surrounded by nature.</p>
 </div>
 
 <!-- MAP -->
@@ -332,16 +309,19 @@ thumbs.forEach((thumb, i) => {
   };
 });
 
-/* SWIPE */
-let startX = 0;
-slides.addEventListener("touchstart", e => startX = e.touches[0].clientX);
-slides.addEventListener("touchend", e => {
-  let endX = e.changedTouches[0].clientX;
-  if (startX - endX > 50) index++;
-  if (endX - startX > 50) index--;
-  if (index < 0) index = slides.children.length - 1;
-  if (index >= slides.children.length) index = 0;
+/* 🔥 AUTO PLAY */
+let auto = setInterval(() => {
+  index = (index + 1) % slides.children.length;
   update();
+}, 4000);
+
+/* pause on hover */
+document.getElementById("slider").addEventListener("mouseenter", () => clearInterval(auto));
+document.getElementById("slider").addEventListener("mouseleave", () => {
+  auto = setInterval(() => {
+    index = (index + 1) % slides.children.length;
+    update();
+  }, 4000);
 });
 
 update();
