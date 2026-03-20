@@ -13,23 +13,24 @@ body {
   color: white;
 }
 
-/* ✅ HERO FINAL FIX */
+/* HERO (FIXED) */
 .hero {
   position: relative;
 }
 .hero img {
   width: 100%;
-  height: 32vh; /* shorter */
+  height: 40vh;
   object-fit: cover;
-  object-position: center 72%; /* correct framing */
+  object-position: center 25%; /* FIXED: shows top of trees */
 }
 
+/* fade */
 .hero::after {
   content: "";
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 80px;
+  height: 100px;
   background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
 }
 
@@ -43,9 +44,11 @@ body {
 }
 .content { flex: 2; }
 
+/* SIDEBAR FIXED */
 .sidebar {
-  flex: 1.3;
-  min-width: 280px;
+  flex: 1.5;
+  min-width: 320px;
+  max-width: 360px;
 }
 
 /* SLIDER */
@@ -65,6 +68,9 @@ body {
   width: 100%;
   max-height: 480px;
   object-fit: contain;
+}
+.slide img:hover {
+  transform: scale(1.02);
 }
 
 /* ARROWS */
@@ -131,7 +137,7 @@ body {
   line-height: 1.8;
   border-top: 1px solid #333;
   padding-top: 12px;
-  word-break: break-word;
+  word-break: break-word; /* FIXED overflow */
 }
 
 .btn {
@@ -232,7 +238,9 @@ body {
 
 <p><strong>Two-Building Villa | 3 Bedrooms | Relaxing Garden | Near the Beach</strong></p>
 
-<p>Welcome to Katulganan, your peaceful home away from home on beautiful Talikud Island.</p>
+<p>
+Welcome to Katulganan, your peaceful home away from home on beautiful Talikud Island.
+</p>
 
 <h3>🏡 The Property</h3>
 <p>Two buildings set within a tranquil tropical garden.</p>
@@ -322,6 +330,18 @@ thumbs.forEach((thumb, i) => {
     index = i;
     update();
   };
+});
+
+/* SWIPE */
+let startX = 0;
+slides.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+slides.addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) index++;
+  if (endX - startX > 50) index--;
+  if (index < 0) index = slides.children.length - 1;
+  if (index >= slides.children.length) index = 0;
+  update();
 });
 
 update();
