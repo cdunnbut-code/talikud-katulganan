@@ -55,9 +55,7 @@ h1 {
   overflow: hidden;
   margin-bottom: 10px;
 }
-.main-img {
-  grid-row: span 2;
-}
+.main-img { grid-row: span 2; }
 .gallery img {
   width: 100%;
   height: 100%;
@@ -80,9 +78,7 @@ h1 {
   display: flex;
   transition: transform 0.5s ease;
 }
-.slide {
-  min-width: 100%;
-}
+.slide { min-width: 100%; }
 .slide img,
 .slide video {
   width: 100%;
@@ -104,10 +100,6 @@ h1 {
   border-radius: 50%;
   cursor: pointer;
   z-index: 10;
-  transition: 0.2s;
-}
-.arrow:hover {
-  background: rgba(0,0,0,0.9);
 }
 .left { left: 15px; }
 .right { right: 15px; }
@@ -126,11 +118,6 @@ h1 {
   opacity: 0.6;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.2s;
-}
-.thumb img:hover {
-  opacity: 1;
-  transform: scale(1.05);
 }
 .thumb.active img {
   opacity: 1;
@@ -147,13 +134,7 @@ h1 {
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   border: 1px solid #dddddd;
 }
-.booking p {
-  color: #000000;
-}
-.booking h3 {
-  color: #000000;
-  font-size: 26px;
-}
+.booking p, .booking h3 { color: #000; }
 
 /* BUTTONS */
 .btn {
@@ -164,24 +145,19 @@ h1 {
   border-radius: 10px;
   text-decoration: none;
   font-weight: bold;
-  transition: 0.15s;
   background: black;
   color: white;
-}
-.btn:hover {
-  transform: translateY(-2px);
 }
 
 /* DESCRIPTION */
 .book {
   margin-top: 35px;
   line-height: 1.8;
-  color: #000000;
   border-top: 1px solid #dddddd;
   padding-top: 25px;
 }
 
-/* AMENITIES ICONS */
+/* AMENITIES */
 .amenities {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -193,11 +169,51 @@ h1 {
   padding: 10px 12px;
   border-radius: 10px;
   border: 1px solid #e5e5e5;
-  transition: 0.2s;
 }
-.amenity:hover {
-  background: #eeeeee;
-  transform: translateY(-2px);
+
+/* REVIEW BOXES */
+.review-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  margin-top: 10px;
+}
+.review {
+  background: #f7f7f7;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+  font-size: 14px;
+}
+
+/* BOOKING FORM */
+.booking-form {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+.booking-form input,
+.booking-form textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+.booking-form button {
+  padding: 14px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  text-align: center;
 }
 
 /* MAP */
@@ -210,22 +226,7 @@ h1 {
 /* MOBILE */
 @media (max-width: 900px) {
   .main { flex-direction: column; }
-  .sidebar { margin-top: 0; }
-
-  .gallery {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 110px 110px 110px;
-  }
-
-  .main-img {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-
-  .slide img,
-  .slide video {
-    height: 220px;
-  }
+  .review-box { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -274,127 +275,50 @@ h1 {
 <h2>🌴 Katulganan — Your Private Island Retreat on Talikud 🌊</h2>
 
 <h3>🏡 The Property</h3>
-<p>
-Two buildings set within a tranquil tropical garden, offering space, privacy, and a relaxing island lifestyle.
-</p>
-
-<h3>🛏 The Main House</h3>
-<p>
-Casa Palmera: Queen bed<br>
-Casa Coco: Queen beds
-</p>
-
-<h3>🏠 Second Building</h3>
-<p>
-Casa Bamboo: Queen bed with garden view<br>
-Perfect as a guest suite, chill-out area, or workspace.
-</p>
-
-<h3>🌺 Garden</h3>
-<p>
-Relax, dine outdoors, and enjoy peaceful evenings.
-</p>
-
-<h3>🌊 Location</h3>
-<p>
-Talikud Island — approx. 1 hour by ferry from Sta. Ana Wharf, Davao<br>
-Short walk to beach
-</p>
+<p>Two buildings set within a tranquil tropical garden.</p>
 
 <h3>✨ Amenities</h3>
 <div class="amenities">
-  <div class="amenity">📶 WiFi</div>
-  <div class="amenity">❄️ Air conditioning</div>
-  <div class="amenity">📺 Netflix TV</div>
-  <div class="amenity">🍳 Kitchen</div>
-  <div class="amenity">🌴 Private garden</div>
+  <div class="amenity">WiFi</div>
+  <div class="amenity">Air conditioning</div>
+  <div class="amenity">Netflix TV</div>
+  <div class="amenity">Kitchen</div>
+  <div class="amenity">Private garden</div>
 </div>
 
 <p><strong>₱8,995 per night (entire property)</strong></p>
 
-<h3>📋 House Rules</h3>
-<p>
-• Check-in: 2:00 PM<br>
-• Check-out: 11:00 AM<br>
-• No smoking inside rooms<br>
-• No parties or loud music after 10 PM<br>
-• Please respect neighbours and the island environment
-</p>
-
-<h3>👨‍👩‍👧‍👦 Perfect For</h3>
-<p>
-• Families<br>
-• Groups of friends<br>
-• Remote workers<br>
-• Couples retreats<br>
-• Quiet island getaways
-</p>
-
-<h3>⛴ How to Get to Talikud Island</h3>
-<p>
-1. Fly into Davao City (DVO Airport)<br>
-2. Taxi to Sta. Ana Wharf (20 minutes)<br>
-3. Ferry to Talikud Island (45–60 minutes)<br>
-4. Short tricycle ride to the house
-</p>
-
-<h3>📍 Nearby</h3>
-<p>
-• Beach – 3 minute walk<br>
-• Sari-sari shop – 2 minute walk<br>
-• Local restaurants – 5–10 minutes<br>
-• Snorkelling areas nearby<br>
-• Island hopping tours available
-</p>
-
-<h3>💰 Discounts</h3>
-<p>
-• 3 nights: ₱8,495 per night<br>
-• 5 nights: ₱7,995 per night<br>
-• 7 nights+: ₱6,995 per night<br>
-• Monthly rate available — message for price
-</p>
-
 <h3>⭐ Guest Reviews</h3>
-<p>
-“Beautiful peaceful place. Perfect for a relaxing break.” – Maria<br><br>
-“Large space, great for families, and very close to the beach.” – James<br><br>
-“Loved the garden and outdoor dining area. We will come back.” – Anna
-</p>
+<div class="review-box">
+  <div class="review"><b>Maria</b><br>Beautiful peaceful place.</div>
+  <div class="review"><b>James</b><br>Great for families and groups.</div>
+  <div class="review"><b>Anna</b><br>We will come back.</div>
+</div>
 
-<h3>🌊 Things To Do on Talikud Island</h3>
-<p>
-• Snorkelling<br>
-• Island hopping<br>
-• Beach swimming<br>
-• Sunset walks<br>
-• Fishing<br>
-• Relax in the garden<br>
-• Visit local village shops and restaurants
-</p>
+<h3>📅 Availability</h3>
+<p>Please message us to confirm your dates.</p>
 
-<h3>🚐 Transport & Pickup</h3>
-<p>
-We can help arrange:<br>
-• Airport pickup in Davao City<br>
-• Taxi to Sta. Ana Wharf<br>
-• Ferry information<br>
-• Tricycle pickup from Talikud port to the house
-</p>
+<h3>📝 Send Booking Request</h3>
+<form class="booking-form">
+  <input type="text" placeholder="Your Name" required>
+  <input type="email" placeholder="Email" required>
+  <input type="text" placeholder="Dates" required>
+  <input type="number" placeholder="Guests" required>
+  <textarea placeholder="Message"></textarea>
+  <button type="submit">Send Booking Request</button>
+</form>
 
-<h3>🏝 Long Stay & Monthly Rates</h3>
-<p>
-Perfect for remote workers or long stays.<br>
-Discounts available for weekly and monthly bookings.<br>
-Contact us for long-stay pricing.
-</p>
-
-<h3>📞 Contact</h3>
-<p>
-WhatsApp: +63 939 110 0692<br>
-Facebook: facebook.com/talikudkatulganan<br>
-Location: Talikud Island, Davao, Philippines
-</p>
+<div class="footer">
+  <h3>Talikud Katulganan</h3>
+  <p>
+    Private Villa Rental • Talikud Island • Davao<br>
+    WhatsApp: +63 939 110 0692<br>
+    Facebook: talikudkatulganan
+  </p>
+  <p style="font-size:12px; margin-top:20px;">
+    © Talikud Katulganan
+  </p>
+</div>
 
 </div>
 
@@ -408,9 +332,7 @@ Location: Talikud Island, Davao, Philippines
 <div class="booking">
 <h3>₱8,995 / night</h3>
 <p>Entire property • 6–10 guests</p>
-<p>📞 +63 939 110 0692<br>
-facebook.com/talikudkatulganan</p>
-
+<p>📞 +63 939 110 0692<br>facebook.com/talikudkatulganan</p>
 <a class="btn whatsapp" href="https://wa.me/639391100692">WhatsApp</a>
 <a class="btn call" href="tel:+639391100692">Call Now</a>
 </div>
@@ -427,12 +349,7 @@ const thumbsContainer = document.getElementById("thumbs");
   const div = document.createElement("div");
   div.className = "thumb";
   div.innerHTML = `<img src="${slide.querySelector("img")?.src || 'img1.jpg'}">`;
-
-  div.onclick = () => {
-    index = i;
-    update();
-  };
-
+  div.onclick = () => { index = i; update(); };
   thumbsContainer.appendChild(div);
 });
 
